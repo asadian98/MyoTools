@@ -1,6 +1,6 @@
 # MyoTools
 
-Welcome to the **MyoTools** repository! This project contains tools for **data extraction**, **motor unit sorting**, and **basic visualization** for neuroscience research. The code is designed to work seamlessly with data from **MonkeyLogic** and the Myomatrix electrodes recorded by **Open Ephys recording system**. 
+Welcome to the **MyoTools** repository! This project contains tools for **data extraction**, **motor unit sorting**, and **basic visualization** for neuroscience research. The code is designed to work seamlessly with data from **MonkeyLogic** and the **Myomatrix electrodes** recorded using **Open Ephys recording system**. 
 
 ## Overview
 
