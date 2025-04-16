@@ -20,16 +20,10 @@ cd(Folders.rec_path)
 
 load('rec_Analog_2.mat')
 load('rec_EMG_1k_2.mat')
-load('rec_EMG_2.mat')
 load("rec_events_2.mat")
 load('rec_Z_2.mat')
 
 sampling_rate = 30000;
-
-
-emg = downsample(double(EMG_30k(:, 1:30000*5))', 30000/10000)';
-save('emg', 'emg')
-
 
 %% Calibrate Eye
 
@@ -90,8 +84,7 @@ close all
 
 %% Plot filtered emg signal over channels
 
-EMG = rec_EMG_1k{1, 1}.data([12, 11, 10, 9, 8, 7, 6, 5, 13, 14, 15, 16, 1, 2, 3, 4], :);
-EMG_30k = rec_EMG{1, 1}.data([12, 11, 10, 9, 8, 7, 6, 5, 13, 14, 15, 16, 1, 2, 3, 4], :);
+EMG = rec_EMG_1k{1, 1}.data([23, );
 
 figure
 
@@ -196,7 +189,7 @@ time_post_eye = 200;
 time_pre_tar = 200;
 time_post_tar = 400;
 
-% EMG = rec_EMG_1k{1, 1}.data(1:16, :);
+EMG = rec_EMG_1k{1, 1}.data(1:16, :);
 
 % EMG_aligned_r is index*ch*time
 EMG_aligned_eye_ru = zeros(length(PD_ru), size(EMG, 1), time_pre_eye+time_post_eye+1);

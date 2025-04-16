@@ -253,73 +253,6 @@ end
 
 if(runSorting_flag)
 
-%     cd(Folders.EMUsort)
-%     anaconda_path = 'C:\ProgramData\anaconda3';
-%     setenv('PATH', [anaconda_path ';' anaconda_path '\Scripts;' anaconda_path '\Library\bin;' getenv('PATH')]);
-%     command = strcat("activate emusort && python emusort.py --folder ", rec_path, "\ ");
-%     [status, cmdout] = system(command, "-echo");
-%     command = strcat("activate emusort && python emusort.py --folder ", rec_path, " --sort");
-%     [status, cmdout] = system(command, "-echo");
-% 
-%     cd(Folders.EMUsort)
-
-%     micromambaPath = 'C:/micromamba';
-%     environmentName = 'myenv';
-%     gitBashPath = 'C:/Program Files/Git/bin/bash.exe';
-%     matlabCommands = 'python my_script.py'; % Replace with your desired commands
-%     
-%     command = sprintf('"%s" -c "source %s/bin/activate %s && %s"', ...
-%         gitBashPath, micromambaPath, environmentName, matlabCommands);
-%     
-%     [status, result] = system(command);
-
-% Assuming rec_path holds the path to your session folder (e.g., 'D:\MyData\Session1')
-
-% 1. Construct the path to git-bash.exe
-git_bash_path = 'C:\Program Files\Git\git-bash.exe';
-
-% 2. Construct the commands to run in git-bash.
-%   - Use forward slashes for paths in git-bash.
-%   - Escape spaces in paths with backslashes.
-%   - Convert Windows paths to Git Bash compatible paths.
-
-%     % Convert rec_path to git-bash compatible path.
-%     rec_path_bash = strrep(Folders.rec_path, '\', '/'); % Replace backslashes with forward slashes
-%     rec_path_bash = strrep(rec_path_bash, ' ', '\ '); % Escape spaces
-%     
-%     % Construct the first command.
-%     command1 = sprintf('"%s" --login -i -c "micromamba activate emusort"', git_bash_path);
-%     command2 = sprintf('"%s" --login -i -c "emusort --folder %s"', git_bash_path, rec_path_bash);
-% 
-%     % Construct the second command.
-%     command3 = sprintf('"%s" --login -i -c "emusort --folder %s --sort"', git_bash_path, rec_path_bash);
-%     
-%     % 3. Execute the commands using system().
-%     [status1, cmdout1] = system(command1, '-echo');
-%     [status2, cmdout2] = system(command2, '-echo');
-%     [status3, cmdout3] = system(command3, '-echo');
-%     
-%     % 4. (Optional) Check the status and output.
-%     if status1 == 0
-%         disp('First command executed successfully.');
-%         disp(cmdout1);
-%     else
-%         disp('First command failed.');
-%         disp(cmdout1);
-%     end
-%     
-%     if status2 == 0
-%         disp('Second command executed successfully.');
-%         disp(cmdout2);
-%     else
-%         disp('Second command failed.');
-%         disp(cmdout2);
-%     end
-
-
-% rec_path = strrep(rec_path, '\', '\\');
-
-
     % Path to Git Bash executable
     gitbash_path = '"C:\Program Files\Git\git-bash.exe"';
     
@@ -336,6 +269,9 @@ git_bash_path = 'C:\Program Files\Git\git-bash.exe';
     command = strcat(gitbash_path, " -c 'micromamba activate emusort && emusort --folder \'", strrep(Folders.rec_path, '\', '\\'), "\' --sort");
     [status, cmdout] = system(command, "-echo");
 
+
+    % For: A Particle Swarm Optimized Independence Estimator for Blind Source Separation of Neurophysiological Time Series
+    py.convertPKLtoMAT.convertPKLtoMAT();
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
